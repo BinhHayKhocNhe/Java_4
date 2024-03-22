@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+#header {
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .1);
+	background: #fff;
+	z-index: 100;
+}
+
+.pd-top {
+	padding-top: calc(119.613px + 36px) !important;
+}
+
+.slide-fwd-center {
+    position: relative;
+    transition: transform 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940), border-bottom 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    border-bottom: 2px solid transparent; /* Độ dày và kiểu của border bottom */
+}
+
+.slide-fwd-center:hover {
+    transform: translateX(7px); /* Di chuyển phần tử sang phải 10px khi hover */
+    border-bottom: 1.8px solid black;
+     /* Màu của border bottom khi hover */
+}
+
+
+
+.icon_hover:hover i {
+	display: inline-block;
+	margin: 0 0.5rem;
+	animation: bounce;
+	animation-duration: 2s;
+	transition: 0.02s;
+	color: red;
+}
+
+.slide-top:hover {
+	animation: 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.slide-top {
+	transition: transform 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.slide-top:hover {
+	transform: translateY(-8px);
+	border-top-left-radius: 5px !important;
+	border-top-right-radius: 5px !important;
+	/* Điều chỉnh giá trị translateY theo nhu cầu */
+}
+
+.text-shadow-pop-bottom {
+	-webkit-animation: 0.6s both;
+	animation: 0.6s both;
+}
+
+.text-shadow-pop-bottom:hover {
+	text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.image-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.image-container img {
+	max-width: 100%; 
+}
+
+.text-container {
+	display: -webkit-box;
+	-webkit-line-clamp: 3; /* Chỉ hiển thị tối đa 3 dòng */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 576px) {
+	.mg-t-sm {
+		margin-top: 12px;
+	}
+}
