@@ -31,7 +31,7 @@
                                 aria-describedby="basic-addon1">
                         </div>
                         <div class="ms-3">
-                            <a href="" class="text-black"><i class="bi bi-cart2 fs-4"></i></a>
+                            <a href="Servlet_Cart" class="text-black"><i class="bi bi-cart2 fs-4"></i></a>
                         </div>
                     </div>
                 </div>

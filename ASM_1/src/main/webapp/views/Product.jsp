@@ -149,14 +149,14 @@
 							<div class="col-lg-4 col-md-6 col-sm-12 mb-3">
 								<div class="card slide-top">
 									<div>
-										<a href=""><img
-											src="https://pos.nvncdn.com/a6f18e-116325/ps/20220303_CWhzF7jZHTD08Zbi3RV73n5y.jpg"
+										<a href="Servlet_Detail"><img
+											src="https://pos.nvncdn.com/a6f18e-116325/ps/20220303_Ts1kuHIfU3N8x4NljWhNnjmy.jpg"
 											class="card-img-top" alt="..."></a>
 									</div>
 									<div class="text-center mt-2">
 										<a href=""
 											class="text-decoration-none text-black fw-light text-shadow-pop-bottom">
-											Túi Mini Vuông Basic</a>
+											Túi Mini Basic 2</a>
 									</div>
 									<div class="d-flex justify-content-around align-items-center">
 										<div>
@@ -169,7 +169,7 @@
 												class="bi bi-share"></i></a>
 										</div>
 										<div>
-											<a href=""
+											<a href="Servlet_Detail"
 												class="text-decoration-line-through btn btn-link px-2 py-3"
 												style="color: #a71d1d;">799.000đ</a>
 										</div>
