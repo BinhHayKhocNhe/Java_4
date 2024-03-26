@@ -18,18 +18,19 @@
 }
 
 .slide-fwd-center {
-    position: relative;
-    transition: transform 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940), border-bottom 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    border-bottom: 2px solid transparent; /* Độ dày và kiểu của border bottom */
+	position: relative;
+	transition: transform 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940),
+		border-bottom 0.45s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+	border-bottom: 2px solid transparent;
+	/* Độ dày và kiểu của border bottom */
 }
 
 .slide-fwd-center:hover {
-    transform: translateX(7px); /* Di chuyển phần tử sang phải 10px khi hover */
-    border-bottom: 1.8px solid black;
-     /* Màu của border bottom khi hover */
+	transform: translateX(7px);
+	/* Di chuyển phần tử sang phải 10px khi hover */
+	border-bottom: 1.8px solid black;
+	/* Màu của border bottom khi hover */
 }
-
-
 
 .icon_hover:hover i {
 	display: inline-block;
@@ -70,7 +71,7 @@
 }
 
 .image-container img {
-	max-width: 100%; 
+	max-width: 100%;
 }
 
 .text-container {
