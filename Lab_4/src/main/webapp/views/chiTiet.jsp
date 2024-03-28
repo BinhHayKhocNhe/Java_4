@@ -21,7 +21,7 @@
 			<p>Giá gốc: ${item.price}</p>
 			<p>Giảm giá: ${item.discount}</p>
 			<p>Giá mới: ${item.price * (1 - item.discount)}</p>
-			<!-- Hiển thị các thông tin khác của sản phẩm -->
+			<p><img alt="" src="${item.image}"></p>
 		</c:forEach>
 	</div>
 </body>
