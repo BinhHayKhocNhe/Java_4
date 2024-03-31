@@ -11,7 +11,7 @@ import Model.User;
 import Utils.JpaUtils;
 
 public class UserDAO {
-	
+
 	private EntityManager em = JpaUtils.getEntityManager();
 
 	public User create(User entity) {
@@ -117,4 +117,13 @@ public class UserDAO {
 			return Collections.emptyList(); // Trả về danh sách trống
 		}
 	}
+
+	public long countAll() {
+		String jpql = "SELECT COUNT(u.id) FROM User u";
+
+		TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+
+		return query.getSingleResult();
+	}
+
 }

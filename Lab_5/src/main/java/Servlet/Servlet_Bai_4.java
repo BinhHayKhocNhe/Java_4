@@ -2,19 +2,28 @@ package Servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
 import DAO.UserDAO;
 import Model.User;
 
-@WebServlet({ "/sign-in", "/sign-up", "/sign-out", "/forgot-password", "/change-password", "/edit-profile" })
+@WebServlet({ "/sign-in", "/sign-up", "/sign-out", "/forgot-password", "/ForgetPassword", "/change-password",
+		"/edit-profile" })
 public class Servlet_Bai_4 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,6 +48,8 @@ public class Servlet_Bai_4 extends HttpServlet {
 			this.doSignUp(request, response);
 		} else if (uri.contains("edit-profile")) {
 			this.doEditProfile(request, response);
+		} else if (uri.contains("forgot-password")) {
+
 		}
 	}
 
@@ -128,5 +139,12 @@ public class Servlet_Bai_4 extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("error", "Error: " + e.getMessage());
 		}
+	}
+
+	public static void main(String[] args) {
+		String a = "clonechuaxu1@gmail.com";
+		UserDAO dao = new UserDAO();
+		User user = dao.findByEmail(a);
+		System.out.println(user.getFullname());
 	}
 }

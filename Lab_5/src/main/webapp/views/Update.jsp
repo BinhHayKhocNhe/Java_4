@@ -78,9 +78,9 @@
 				<c:forEach var="user" items="${users}">
 					<tr class="text-center">
 						<td><c:out value="${user.id}" /></td>
+						<td><c:out value="${user.password}" /></td>
 						<td><c:out value="${user.fullname}" /></td>
 						<td><c:out value="${user.email}" /></td>
-						<td><c:out value="${user.password}" /></td>
 						<td><c:out value="${user.role ? 'Admin' : 'User'}" /></td>
 						<td><a href="/Lab_5_Java4/edit-profile?id=${user.id}">
 								Edit </a></td>

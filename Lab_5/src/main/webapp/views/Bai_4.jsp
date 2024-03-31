@@ -13,14 +13,14 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
 						href="sign-in">Đăng nhập</a></li>
-					<li class="nav-item"><a class="nav-link" href="sign-up">Đăng kí</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Đăng
+					<li class="nav-item"><a class="nav-link" href="sign-up">Đăng
+							kí</a></li>
+					<li class="nav-item"><a class="nav-link" href="sign-out">Đăng
 							xuất</a></li>
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">Quên mật khẩu</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Đổi mật
-							khẩu</a></li>
+						href="forgot-password">Quên mật khẩu</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="change-password">Đổi mật khẩu</a></li>
 					<li class="nav-item"><a class="nav-link" href="edit-profile">Chỉnh
 							sửa thông tin </a></li>
 				</ul>
