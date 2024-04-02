@@ -4,8 +4,20 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQueries;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+@NamedStoredProcedureQueries({
+    @NamedStoredProcedureQuery(
+        name = "Report.favoriteByYear",
+        procedureName = "spFavoriteByYear",
+        parameters = {
+            @StoredProcedureParameter(name = "year", type = Integer.class)
+        }
+    )
+})
 
 @Entity
 public class Report {

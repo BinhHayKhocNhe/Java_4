@@ -27,12 +27,35 @@
 							class="nav-link dropdown-toggle" href="" role="button"
 							data-bs-toggle="dropdown" aria-expanded="false"> Bài 2 </a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="Servlet_ID_Search">Search by user ID</a></li>
-								<li><a class="dropdown-item" href="#">Search by video</a></li>
-								<li><a class="dropdown-item" href="#">User Search</a></li>
-								<li><a class="dropdown-item" href="#">Search by
-										favorite</a></li>
-								<li><a class="dropdown-item" href="#">Report</a></li>
+								<li><a class="dropdown-item" href="Servlet_ID_Search">Search
+										by user ID</a></li>
+								<li><a class="dropdown-item" href="Servlet_Title_Search">Search
+										by video</a></li>
+								<li><a class="dropdown-item" href="Servlet_Persion_Search">User
+										Search</a></li>
+								<li><a class="dropdown-item" href="Servlet_Favorite_Search">Search
+										by favorite</a></li>
+								<li><a class="dropdown-item" href="Servlet_Group_Video">Report</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Bài 3 </a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="bai3-title"> Title
+										Search</a></li>
+								<li><a class="dropdown-item" href="bai3-id"> ID Search</a></li>
+								<li><a class="dropdown-item" href="bai3-range">Range
+										Search </a></li>
+								<li><a class="dropdown-item" href="bai3-months"> Months
+										Search</a></li>
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Bài 4 </a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="bai4-ran"> Random </a></li>
+								<li><a class="dropdown-item" href="bai4-year">Year
+										Search</a></li>
 							</ul></li>
 					</ul>
 				</div>

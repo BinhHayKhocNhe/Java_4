@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ID Search</title>
+<title>bai3-id</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -14,16 +14,16 @@
 </head>
 <body>
 	<div class="container mt-3 d-flex">
-		<form class="w-25" style="margin: 0 auto;" action="Servlet_ID_Search" method="post">
+		<form class="w-25" style="margin: 0 auto;" action="bai3-id"
+			method="post">
 			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label"> ID
-					Search</label> <input type="text" class="form-control"
-					id="exampleInputEmail1" aria-describedby="emailHelp" name="id">
+				<label for="exampleInputEmail1" class="form-label">Username </label>
+				<input type="text" class="form-control" id="exampleInputEmail1"
+					aria-describedby="emailHelp" name="id"">
 			</div>
-			<button type="submit" class="btn btn-primary" formaction="Servlet_ID_Search">Search</button>
+			<button type="submit" class="btn btn-primary">Search</button>
 		</form>
 	</div>
-
 	<c:if test="${not empty error_id}">
 		<div class="d-flex justify-content-center align-items-center">
 			<div class="alert alert-danger mt-3 w-25 text-center" role="alert">${error_id}</div>
@@ -54,13 +54,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${favorites}" var="favorite" varStatus="loop">
+				<c:forEach items="${favorite}" var="favorite" varStatus="loop">
 					<tr>
 						<th scope="row">${loop.index + 1}</th>
 						<td>${favorite.id}</td>
-						<td>${favorite.video.title}</td>
-						<td>${favorite.video.views}</td>
-						<td>${favorite.video.active}</td>
+						<td>${favorite.title}</td>
+						<td>${favorite.views}</td>
+						<td>${favorite.active}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

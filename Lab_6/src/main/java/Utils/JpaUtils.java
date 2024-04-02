@@ -5,8 +5,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class JpaUtils {
+
+	// Đối tượng này cho phép tạo ra EntityManager để bắt đầu lập trình truy vấn và
+	// thao tác dữ liệu.
 	private static EntityManagerFactory factory;
 
+	//Cho phép thao tác (thêm, sửa, xóa) và truy vấn 1 thực thể
 	public static EntityManager getEntityManager() {
 
 		if (factory == null || !factory.isOpen()) {

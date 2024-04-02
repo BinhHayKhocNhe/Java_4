@@ -6,11 +6,45 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NamedNativeQueries;
+import org.hibernate.annotations.NamedNativeQuery;
+import javax.persistence.NamedQueries;
 
 
+@NamedNativeQueries({
+    @NamedNativeQuery(
+        name = "Report.random10",
+        query = "SELECT TOP 10 * FROM Videos ORDER BY NEWID()",
+        resultClass = Video.class
+    )
+})
+
+@NamedQueries({
+    @NamedQuery(
+        name = "Video.findByKeyword",
+        query = "SELECT DISTINCT o.video FROM Favorite o WHERE o.video.title LIKE :keyword"
+    ),
+    @NamedQuery(
+        name = "Video.findByUser",
+        query = "SELECT o.video FROM Favorite o WHERE o.user.id = :id"
+    ),
+    @NamedQuery(
+        name = "Video.findInRange",
+        query = "SELECT DISTINCT o.video FROM Favorite o WHERE o.likeDate BETWEEN :min AND :max"
+    ),
+    @NamedQuery(
+        name = "Video.findInMonths",
+        query = "SELECT DISTINCT o.video FROM Favorite o WHERE MONTH(o.likeDate) IN (:months)"
+    ),
+    @NamedQuery(
+        name = "Video.selectYear",
+        query = "SELECT DISTINCT YEAR(o.likeDate) FROM Favorite o ORDER BY YEAR(o.likeDate) DESC"
+    )
+})
 
 @Entity
 @Table(name = "Videos")
