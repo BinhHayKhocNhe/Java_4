@@ -19,37 +19,65 @@ VALUES
     ('user3', 'password3', 'User Three', 'user3@example.com', '555555555', 1, '1988-12-12', 'User');
 
 CREATE TABLE Categories (
-    CategoryID INT PRIMARY KEY IDENTITY,
-    CategoryCode NVARCHAR(20) NOT NULL,
+    CategoryID NVARCHAR(20) PRIMARY KEY,
     CategoryName NVARCHAR(100) NOT NULL,
     Note NVARCHAR(200)
 );
+
+INSERT INTO Categories (CategoryID, CategoryName, Note)
+VALUES ('C001', N'Giày dép', NULL),
+('C002', N'Túi xách', NULL);
+
 CREATE TABLE Products (
     ProductID INT PRIMARY KEY IDENTITY,
-    ProductCode NVARCHAR(20) NOT NULL,
     ProductName NVARCHAR(100) NOT NULL,
     Price DECIMAL(10, 2) NOT NULL,
     ImageURL NVARCHAR(255),
     Quantity INT NOT NULL,
-    CategoryID INT NOT NULL,
+    CategoryID NVARCHAR(20) NOT NULL,
     Sale DECIMAL(5, 2) DEFAULT 0,
+	Note NVARCHAR(20)
     CONSTRAINT FK_CategoryID FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
 );
 
--- Chèn mẫu dữ liệu vào bảng Categories
-INSERT INTO Categories (CategoryCode, CategoryName, Note)
-VALUES 
-    ('C001', 'Electronics', 'Category for electronic devices'),
-    ('C002', 'Clothing', 'Category for clothing items'),
-    ('C003', 'Books', 'Category for books');
+SELECT COUNT(ProductID) FROM Products WHERE CategoryID = 'C001';
 
--- Chèn mẫu dữ liệu vào bảng Products
-INSERT INTO Products (ProductCode, ProductName, Price, ImageURL, Quantity, CategoryID, Sale)
-VALUES 
-    ('P001', 'Laptop', 999.99, 'laptop.jpg', 10, 1, 0),
-    ('P002', 'T-shirt', 19.99, 'tshirt.jpg', 50, 2, 0),
-    ('P003', 'Book: Introduction to SQL', 29.99, 'sql_book.jpg', 20, 3, 0);
 
+INSERT INTO Products (ProductName, Price, ImageURL, Quantity, CategoryID, Sale, Note)
+VALUES (N'Túi Mini Basic 2', 375000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_Ts1kuHIfU3N8x4NljWhNnjmy.jpg', 10, N'C002', 0, null),
+(N'Túi Mini KBUTMINI', 300000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_m8ZR3KAhQF1FKkZ6zWlrBo8F.jpg', 35, N'C002', 15, null),
+(N'Túi Mini Vuông Quai Ngọc', 275000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_HZqQVgEDsi1YEmAnq1vOSfFH.jpg', 40, N'C002', 0, null),
+(N'Túi Mini Vuông Basic', 235000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_CWhzF7jZHTD08Zbi3RV73n5y.jpg', 70, N'C002', 5, null),
+(N'Túi Mini Khóa Tròn', 250000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_MmOXyz47ynz2AVlWBkacRm7y.jpg', 100, N'C002', 12, null),
+(N'Túi Mini Ngọc', 200000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_YzvVUg66nRXeigQlFFqevDRk.jpg', 78, N'C002', 0, null),
+(N'Túi Đeo Vai Khóa Tròn', 415000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_13scJtlI5HSGThUUD0sGF5nq.jpg', 140, N'C002', 0, null);
+
+INSERT INTO Products (ProductName, Price, ImageURL, Quantity, CategoryID, Sale, Note)
+VALUES (N'Túi Đeo Vai Vân Cá Sấu', 350000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_6kgNoNgb3yoGMgvROYzk3i0X.jpg', 10, N'C002', 0, null),
+(N'Túi Đeo Vai Khóa Gương Lệch', 300000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_R2kWTE964h2eWJxpNsSfGuH7.jpg', 35, N'C002', 15, null),
+(N'Túi Đeo Vai Dáng Vuông Ngang', 475000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_UKiv8dULqZv4JDvz1wkGu3jE.jpg', 40, N'C002', 0, null),
+(N'Túi Đeo Vai Vuông TV05', 235000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_OAHLOGixEOSHKa748cNdi0OD.jpg', 70, N'C002', 5, null),
+(N'Túi Đeo Vai Họa Tiết Caro', 250000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_OZoQQMvutFwaaByrnYPaPQDM.jpg', 100, N'C002', 12, null),
+(N'Túi Đeo Vai Dây Da Xoắn Mini', 200000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_VJVp65eeuDJAzuRSXqsNCvdu.jpg', 78, N'C002', 0, null),
+(N'Túi Đeo Chéo Vintage', 415000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220302_xoW6sJwI17cgPJPHmcjthCQ6.jpg', 140, N'C002', 0, null);
+
+INSERT INTO Products (ProductName, Price, ImageURL, Quantity, CategoryID, Sale, Note)
+VALUES (N'Sandal Đế Phẳng Đi Biển', 350000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220304_Y0oJbvLuZVlJtgei9Uo7VH9d.jpg', 10, N'C001', 0, null),
+(N'Sandal Thiết Kế Tam Giác', 300000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220304_aJe09qYUhAjTlVpGi8EKMZcA.jpg', 35, N'C001', 15, null),
+(N'Sandal Xỏ Ngón NKSD- 2723', 475000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220304_4Nf0GfHMZNlWv0yNlIicPilV.jpg', 40, N'C001', 0, null),
+(N'Sandal Đế Bệt Quai Ngang', 235000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220304_GzcGYc4zamwekJK0jhu6efKd.jpg', 70, N'C001', 5, null),
+(N'Sandal Xỏ Ngón Quai Ngang', 250000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220304_dFdLcWRlxzHzmsNX95CUF7Pz.jpg', 100, N'C001', 12, null),
+(N'Sandal ULZZANG Quai Bèo', 200000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_bVHdmLisOSCWCYD5VG8teJ6q.jpg', 78, N'C001', 0, null),
+(N'Sandal Quai Chéo', 415000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_F5waPLLnOt7JNRrA6Ts84XPn.jpg', 140, N'C001', 0, null);
+
+INSERT INTO Products (ProductName, Price, ImageURL, Quantity, CategoryID, Sale, Note)
+VALUES (N'Cao Gót Da Bóng Đính Đá', 350000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_ARQ21QcF9CO6xBRAJiUFCSKi.jpg', 10, N'C001', 0, null),
+(N'Cao Gót Phối Dây Hai Màu', 300000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_TR9WamGFjmbGxO7J4diTWGLq.jpg', 35, N'C001', 15, null),
+(N'Cao Gót Mũi Nhọn Quai Ngang', 475000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_w5lzeTwko0dmh2gqJlzGUzle.jpg', 40, N'C001', 0, null),
+(N'Cao Gót Mũi Vuông', 235000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_tTSROiS8uFw2MDvYmRc5hObc.jpg', 70, N'C001', 5, null),
+(N'Cao Gót Xỏ Ngón Dây Mảnh', 250000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_BbSxhPcoDg19xpwiiWNFjmtj.jpg', 100, N'C001', 12, null),
+(N'Cao Gót Quai Xếp Nhúm', 200000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_wGBQMokK0NAFGSTIL78Mizps.jpg', 78, N'C001', 0, null),
+(N'Cao Gót Chuỗi Ngọc Trai', 415000, N'https://pos.nvncdn.com/a6f18e-116325/ps/20220303_xkTUeoB3fqvBR12TlMXa5nGo.jpg', 140, N'C001', 0, null);
 
 CREATE TABLE Invoices (
     ID INT PRIMARY KEY IDENTITY,

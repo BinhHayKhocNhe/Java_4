@@ -56,9 +56,9 @@
 							<li class="nav-item slide-fwd-center"><a
 								class="nav-link active" href="Servlet_index">Trang chủ</a></li>
 							<li class="nav-item slide-fwd-center"><a
-								class="nav-link active" href="Servlet_Product">Túi xách</a></li>
+								class="nav-link active" href="Servlet_Product?categoryId=C002">Túi xách</a></li>
 							<li class="nav-item slide-fwd-center"><a
-								class="nav-link active" href="Servlet_Product">Giày dép</a></li>
+								class="nav-link active" href="Servlet_Product?categoryId=C001">Giày dép</a></li>
 							<li class="nav-item slide-fwd-center"><a
 								class="nav-link active" href="">Blog thời trang</a></li>
 							<li class="nav-item slide-fwd-center"><a
