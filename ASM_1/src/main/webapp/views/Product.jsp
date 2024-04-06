@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +26,7 @@
 		<div class="container">
 			<p>
 				<span class="border-end pe-3">Trang chủ</span><span
-					class="ps-3 fw-medium">Túi xách</span>
+					class="ps-3 fw-medium">${categoryName}</span>
 			</p>
 		</div>
 	</div>
@@ -161,17 +162,22 @@
 									<div>
 										<c:choose>
 											<c:when test="${product.sale > 0}">
-												<span class="text-decoration-line-through">${product.price}đ</span>
-												<span style="color: #a71d1d;">${product.price - product.sale}đ</span>
+												<span class="text-decoration-line-through"> <fmt:formatNumber
+														type="number" value="${product.price}" pattern="#,##0" />đ
+												</span>
+												<span style="color: #a71d1d;"> <fmt:formatNumber
+														type="number"
+														value="${product.price - (product.price * product.sale / 100)}"
+														pattern="#,##0" />đ
+												</span>
 											</c:when>
 											<c:otherwise>
-                            ${product.price}đ
-                        </c:otherwise>
+												<fmt:formatNumber type="number" value="${product.price}"
+													pattern="#,##0" />đ
+        </c:otherwise>
 										</c:choose>
-										<fmt:formatNumber type="number" value="${product.price}"
-											currencyCode="VND" />
-										đ
 									</div>
+
 								</div>
 							</div>
 						</div>
@@ -199,7 +205,8 @@
 									<span class="page-link">${pageNumber}</span>
 								</c:when>
 								<c:otherwise>
-									<a class="page-link" href="Servlet_Product?page=${pageNumber}&amp;categoryId=${id}">${pageNumber}</a>
+									<a class="page-link"
+										href="Servlet_Product?page=${pageNumber}&amp;categoryId=${id}">${pageNumber}</a>
 								</c:otherwise>
 							</c:choose></li>
 					</c:forEach>
@@ -210,7 +217,8 @@
 							</c:when>
 							<c:otherwise>
 								<a class="page-link"
-									href="Servlet_Product?page=${currentPage + 1}&amp;categoryId=${id}">Kế tiếp</a>
+									href="Servlet_Product?page=${currentPage + 1}&amp;categoryId=${id}">Kế
+									tiếp</a>
 							</c:otherwise>
 						</c:choose></li>
 				</ul>

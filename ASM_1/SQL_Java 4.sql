@@ -23,7 +23,7 @@ CREATE TABLE Categories (
     CategoryName NVARCHAR(100) NOT NULL,
     Note NVARCHAR(200)
 );
-
+select * from Categories where CategoryID = '';
 INSERT INTO Categories (CategoryID, CategoryName, Note)
 VALUES ('C001', N'Giày dép', NULL),
 ('C002', N'Túi xách', NULL);

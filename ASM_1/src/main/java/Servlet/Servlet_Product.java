@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.Categories_DAO;
 import DAO.Products_DAO;
+import Entity.Categories;
 import Entity.Products;
 
 @WebServlet("/Servlet_Product")
@@ -19,6 +21,7 @@ public class Servlet_Product extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		findPage(request, response);
+		CategoryName(request, response);
 		request.getRequestDispatcher("views/Product.jsp").forward(request, response);
 	}
 
@@ -60,5 +63,12 @@ public class Servlet_Product extends HttpServlet {
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("totalPages", totalPages);
 		request.setAttribute("pageNumbers", pageNumbers);
+	}
+
+	protected void CategoryName(HttpServletRequest request, HttpServletResponse response) {
+		Categories_DAO dao = new Categories_DAO();
+		String categoryId = request.getParameter("categoryId");
+		String categoryName = dao.CategoryName(categoryId);
+		request.setAttribute("categoryName", categoryName);
 	}
 }

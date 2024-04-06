@@ -66,6 +66,7 @@ public class Products_DAO implements myInterFace<Products, Object> {
 
 	@Override
 	public Products findById(Object id) {
+		em = JpaUtils.getEntityManager();
 		return em.find(Products.class, id);
 	}
 
@@ -77,8 +78,8 @@ public class Products_DAO implements myInterFace<Products, Object> {
 
 	@Override
 	public List<Products> findPage(int page, int size, String categoryId) {
+		em = JpaUtils.getEntityManager();
 		try {
-			em = JpaUtils.getEntityManager();
 			String jpql = "SELECT p FROM Products p WHERE p.CategoryID = :categoryId";
 			TypedQuery<Products> query = em.createQuery(jpql, Products.class).setParameter("categoryId", categoryId)
 					.setFirstResult(page * size).setMaxResults(size);
@@ -91,8 +92,8 @@ public class Products_DAO implements myInterFace<Products, Object> {
 
 	@Override
 	public List<Products> findByKeyword(String keyword) {
+		em = JpaUtils.getEntityManager();
 		try {
-			em = JpaUtils.getEntityManager();
 			String jpql = "SELECT p FROM Products p WHERE p.ProductName LIKE :name"; // Sửa tên biến
 			TypedQuery<Products> query = em.createQuery(jpql, Products.class);
 			query.setParameter("name", "%" + keyword + "%");
@@ -105,8 +106,8 @@ public class Products_DAO implements myInterFace<Products, Object> {
 
 	@Override
 	public List<Products> selectAll() {
+		em = JpaUtils.getEntityManager();
 		try {
-			em = JpaUtils.getEntityManager();
 			String jpql = "SELECT p FROM Products p";
 			TypedQuery<Products> query = em.createQuery(jpql, Products.class);
 			return query.getResultList();
@@ -118,10 +119,14 @@ public class Products_DAO implements myInterFace<Products, Object> {
 
 	public long countProductID(String categoryId) {
 		em = JpaUtils.getEntityManager();
-		String jpql = "SELECT COUNT(p) FROM Products p WHERE p.CategoryID = :categoryId";
-		TypedQuery<Long> query = em.createQuery(jpql, Long.class);
-		query.setParameter("categoryId", categoryId);
-		return query.getSingleResult();
-
+		try {
+			String jpql = "SELECT COUNT(p) FROM Products p WHERE p.CategoryID = :categoryId";
+			TypedQuery<Long> query = em.createQuery(jpql, Long.class);
+			query.setParameter("categoryId", categoryId);
+			return query.getSingleResult();
+		} finally {
+			JpaUtils.closeEntityManager(em);
+			JpaUtils.shutDown();
+		}
 	}
 }
