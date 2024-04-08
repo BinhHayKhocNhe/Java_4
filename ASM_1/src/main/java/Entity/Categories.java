@@ -1,15 +1,22 @@
 package Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Categories")
 public class Categories {
 	
 	@Id
+	@Column(name="CategoryID")
 	private String CategoryID;
 	
+	@Column(name="CategoryName")
 	private String CategoryName;
+	
+	@Column(name="Note")
 	private String Note;
 
 	public String getCategoryID() {

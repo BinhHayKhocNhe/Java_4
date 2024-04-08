@@ -53,27 +53,28 @@
 					</p>
 					<c:choose>
 						<c:when test="${selectedItems.sale > 0}">
-							<span>Tổng tiền: <fmt:formatNumber type="number"
-									value="${totalPrice}" pattern="#,##0" />đ
+							<span>Tổng tiền: <span class="red"><fmt:formatNumber type="number"
+									value="${totalPrice}" pattern="#,##0" />đ</span>
 							</span>
 						</c:when>
 						<c:otherwise>
-							<span>Tổng tiền: <fmt:formatNumber type="number"
-									value="${totalPrice}" pattern="#,##0" />đ
+							<span>Tổng tiền: <span style="color: red"><fmt:formatNumber type="number"
+									value="${totalPrice}" pattern="#,##0" />đ</span>
 							</span>
 
 						</c:otherwise>
 					</c:choose>
 
-					<form class="input-group w-25 mt-2" action="Servlet_Detail"
+					<form class="input-group w-50 mt-2" action="Servlet_Detail"
 						method="post">
 
 						<button class="btn btn-outline-secondary" type="submit"
 							id="decrementButton" name="action" value="Tru">-</button>
 						<input id="quantityInput" type="number" value="${countProduct}"
 							min="1" class="form-control" placeholder=""
-							aria-describedby="button-addon1" name="countProduct"> <input
-							type="hidden" name="productId" value="${selectedItems.productID}">
+							aria-describedby="button-addon1" name="countProduct" disabled>
+						<input type="hidden" name="productId"
+							value="${selectedItems.productID}">
 						<button class="btn btn-outline-secondary" type="submit"
 							id="incrementButton" name="action" value="Cong">+</button>
 

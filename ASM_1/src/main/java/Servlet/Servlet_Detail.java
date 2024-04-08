@@ -75,15 +75,11 @@ public class Servlet_Detail extends HttpServlet {
 			double price = selectedItems.getPrice();
 			double sale = selectedItems.getSale();
 			if (sale > 0) {
-				// Nếu có giảm giá, tính tổng tiền dựa trên giá sale
 				double discountedPrice = price - (price * sale / 100);
 				totalPrice = discountedPrice * countProduct;
 			} else {
-				// Nếu không có giảm giá, tính tổng tiền dựa trên giá gốc
 				totalPrice = price * countProduct;
 			}
-
-			// Lưu tổng tiền vào request attribute để sử dụng trong JSP
 			request.setAttribute("totalPrice", totalPrice);
 		}
 	}

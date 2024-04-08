@@ -1,20 +1,31 @@
 package Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Invoices")
 public class Invoices {
 	
 	@Id
+	@Column(name="ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ID;
 
+	@Column(name="UserID")
 	private int UserID;
+	
+	@Column(name="TotalAmount")
 	private double TotalAmount;
+	
+	@Column(name="PhoneNumber")
 	private String PhoneNumber;
+	
+	@Column(name="Address")
 	private String Address;
 
 	public Invoices() {

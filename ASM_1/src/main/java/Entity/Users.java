@@ -2,31 +2,49 @@ package Entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+import javax.persistence.UniqueConstraint;
 
 @Entity
+@Table(name = "Users", uniqueConstraints = { @UniqueConstraint(columnNames = { "Username" }),
+		@UniqueConstraint(columnNames = { "Email" }), @UniqueConstraint(columnNames = { "Phone" }) })
 public class Users {
 
 	@Id
+	@Column(name = "ID_User")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ID_User;
-	
+
+	@Column(name = "Username")
 	private String Username;
+
+	@Column(name = "Password")
 	private String Password;
+
+	@Column(name = "Fullname")
 	private String Fullname;
+
+	@Column(name = "Email")
 	private String Email;
+
+	@Column(name = "Phone")
 	private String Phone;
+
+	@Column(name = "Gender")
 	private boolean Gender;
-	
+
+	@Column(name = "Birthday")
 	@Temporal(TemporalType.DATE)
 	private Date Birthday = new Date();;
-	
+
+	@Column(name = "Role")
 	private String Role;
 
 	public Users() {
@@ -102,6 +120,18 @@ public class Users {
 	}
 
 	public void setRole(String role) {
+		Role = role;
+	}
+
+	public Users(String username, String password, String fullname, String email, String phone, boolean gender,
+			Date birthday, String role) {
+		Username = username;
+		Password = password;
+		Fullname = fullname;
+		Email = email;
+		Phone = phone;
+		Gender = gender;
+		Birthday = birthday;
 		Role = role;
 	}
 

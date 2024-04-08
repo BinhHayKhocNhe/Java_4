@@ -5,59 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import Entity.Categories;
 import Utils.JpaUtils;
 
-public class Categories_DAO implements myInterFace<Categories_DAO, Object> {
+public class Categories_DAO implements myInterFace<Categories, Object> {
 
 	private EntityManager em = null;
 
-	@Override
-	public Categories_DAO insert(Categories_DAO entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Categories_DAO update(Categories_DAO entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Categories_DAO delete(Object id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Categories_DAO findById(Object id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void find(Categories_DAO entity) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<Categories_DAO> findPage(int page, int size, String categoryId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Categories_DAO> findByKeyword(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Categories_DAO> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	public String CategoryName(String categoryId) {
 		try {
@@ -70,6 +24,62 @@ public class Categories_DAO implements myInterFace<Categories_DAO, Object> {
 			JpaUtils.closeEntityManager(em);
 			JpaUtils.shutDown();
 		}
+	}
+
+
+	@Override
+	public Categories insert(Categories entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Categories update(Categories entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Categories delete(Object id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Categories findById(Object id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void find(Categories entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public List<Categories> findPage(int page, int size, String categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Categories> findByKeyword(String keyword) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Categories> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
