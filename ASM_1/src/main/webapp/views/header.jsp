@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="header" class="container-fluid position-fixed">
 	<header class="py-2">
 		<div class="container">
@@ -56,9 +57,11 @@
 							<li class="nav-item slide-fwd-center"><a
 								class="nav-link active" href="Servlet_index">Trang chủ</a></li>
 							<li class="nav-item slide-fwd-center"><a
-								class="nav-link active" href="Servlet_Product?categoryId=C002">Túi xách</a></li>
+								class="nav-link active" href="Servlet_Product?categoryId=C002">Túi
+									xách</a></li>
 							<li class="nav-item slide-fwd-center"><a
-								class="nav-link active" href="Servlet_Product?categoryId=C001">Giày dép</a></li>
+								class="nav-link active" href="Servlet_Product?categoryId=C001">Giày
+									dép</a></li>
 							<li class="nav-item slide-fwd-center"><a
 								class="nav-link active" href="">Blog thời trang</a></li>
 							<li class="nav-item slide-fwd-center"><a
@@ -69,13 +72,27 @@
 								class="nav-link active dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"> Tài khoản </a>
 								<ul class="dropdown-menu">
+									<c:choose>
+										<c:when test="${loggedIn}">
+											<li><a class="dropdown-item text-uppercase fw-semibold"
+												href="#">Đăng xuất</a></li>
+										</c:when>
+										<c:otherwise>
+											<li><a class="dropdown-item text-uppercase fw-semibold"
+												href="Servlet_SignIn">Đăng nhập</a></li>
+											<li><a class="dropdown-item text-uppercase fw-semibold"
+												href="Servlet_SignUp">Đăng ký</a></li>
+										</c:otherwise>
+									</c:choose>
+								</ul></li>
+							<li class="nav-item dropdown slide-fwd-center"><a
+								class="nav-link active dropdown-toggle" href="#" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false"> Quản lí </a>
+								<ul class="dropdown-menu">
 									<li><a class="dropdown-item text-uppercase fw-semibold"
-										href="Servlet_SignIn">Đăng nhập</a></li>
+										href="Servlet_Information_Manage">Quản lí người dùng</a></li>
 									<li><a class="dropdown-item text-uppercase fw-semibold"
-										href="Servlet_SignUp">Đăng kí</a></li>
-									<li><hr class="dropdown-divider"></li>
-									<li><a class="dropdown-item text-uppercase fw-semibold"
-										href="#">Đăng xuất </a></li>
+										href="#">Quản lí sản phẩm</a></li>
 								</ul></li>
 						</ul>
 					</div>

@@ -50,13 +50,14 @@
 					<td>245,000 VND</td>
 					<td class="d-flex justify-content-center align-items-center">
 						<div class="input-group mb-3 w-75 w-sm-100 mt-2">
-							<button class="btn btn-outline-secondary " type="button"
-								id="button-addon1">-</button>
+							<button class="btn btn-outline-secondary " type="submit"
+								id="button-addon1" name="action" value="Tru">-</button>
 							<input type="number" class="form-control" placeholder=""
 								aria-label="Example text with button addon"
-								aria-describedby="button-addon1" value="1" min="1">
-							<button class="btn btn-outline-secondary " type="button"
-								id="button-addon1">+</button>
+								aria-describedby="button-addon1" value="1" min="1"
+								name="countProduct" disabled>
+							<button class="btn btn-outline-secondary " type="submit"
+								id="button-addon1" name="action" value="Cong">+</button>
 						</div>
 					</td>
 					<td>245,000 VND</td>
@@ -71,7 +72,8 @@
 		<div class="d-flex justify-content-end align-items-center">
 			<h6 class="me-3 fw-normal text-secondary mb-0">Tổng tiền:
 				245,000VND</h6>
-			<button type="button" class="btn btn-warning me-3">Đặt mua tất cả</button>
+			<button type="button" class="btn btn-warning me-3">Đặt mua
+				tất cả</button>
 			<a href="Servlet_index" class="btn btn-secondary">Quay lại</a>
 		</div>
 	</div>

@@ -34,6 +34,7 @@ public class Servlet_SignIn extends HttpServlet {
 
 	protected void signIn(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		boolean loggedIn = false;
 		try {
 			String username = request.getParameter("Username");
 			String password = request.getParameter("Password");
@@ -42,16 +43,22 @@ public class Servlet_SignIn extends HttpServlet {
 			Users user = dao.findById(username);
 
 			if (user != null && password.equalsIgnoreCase(user.getPassword())) {
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+				loggedIn = true;
 			} else {
 				request.setAttribute("message", "Tên tài khoản hoặc mật khẩu không chính xác");
 				request.setAttribute("username", username);
 				request.setAttribute("password", password);
 				request.getRequestDispatcher("views/SignIn.jsp").forward(request, response);
+				return;
 			}
 		} catch (Exception e) {
 			request.setAttribute("message", "Tên tài khoản hoặc mật khẩu không chính xác");
 			request.getRequestDispatcher("views/SignIn.jsp").forward(request, response);
+			return;
 		}
+
+		request.setAttribute("loggedIn", loggedIn);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
+
 }

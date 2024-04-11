@@ -13,8 +13,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Users", uniqueConstraints = { @UniqueConstraint(columnNames = { "Username" }),
-		@UniqueConstraint(columnNames = { "Email" }), @UniqueConstraint(columnNames = { "Phone" }) })
+@Table(name = "Users")
+//, uniqueConstraints = { @UniqueConstraint(columnNames = { "Username" }),
+//		@UniqueConstraint(columnNames = { "Email" }), @UniqueConstraint(columnNames = { "Phone" }) }
 public class Users {
 
 	@Id

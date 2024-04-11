@@ -21,53 +21,65 @@
 	<%@include file="header.jsp"%>
 	<h4 class="pd-top mb-3 text-center text-uppercase">Đăng kí</h4>
 	<div class="d-flex">
-		<form class="w-25" style="margin: 0 auto;" action="Servlet_SignUp" method="post">
+		<form class="w-25" style="margin: 0 auto;" action="Servlet_SignUp"
+			method="post">
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Tài khoản</label>
 				<input type="text" class="form-control" id="exampleInputEmail1"
 					aria-describedby="emailHelp" required autofocus="autofocus"
-					name="Username">
+					name="Username" value="${user.username}">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Mật
-					khẩu</label> <input type="password" class="form-control"
-					id="exampleInputPassword1" required name="Password">
+				<label class="form-label">Mật khẩu</label> <input type="password"
+					class="form-control" required name="Password"
+					value="${user.password}">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Họ và
-					tên </label> <input type="text" class="form-control"
-					id="exampleInputPassword1" required name="Fullname">
+				<label class="form-label">Họ và tên </label> <input type="text"
+					class="form-control" required name="Fullname"
+					value="${user.fullname}">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Email
-				</label> <input type="email" class="form-control" id="exampleInputPassword1"
-					required name="Email">
+				<label class="form-label">Email </label> <input type="email"
+					class="form-control" required name="Email" value="${user.email}">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Số
-					điện thoại </label> <input type="number" class="form-control"
-					id="exampleInputPassword1" required name="Phone">
+				<label class="form-label">Số điện thoại </label> <input
+					type="number" class="form-control" required name="Phone"
+					value="${user.phone}">
 			</div>
 			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Ngày
-					sinh </label> <input type="date" class="form-control"
-					id="exampleInputPassword1" required name="Birthday">
+				<label for="Birthday" class="form-label">Ngày sinh </label> <input
+					type="date" class="form-control" id="Birthday" required
+					name="Birthday" value="${formattedBirthday}">
 			</div>
 			<div class="mb-3 d-flex">
 				<div class="me-2">Giới tính:</div>
 				<div class="form-check me-2">
 					<input class="form-check-input" type="radio" id="flexRadioDefault1"
-						checked name="Gender" value="true"> <label
-						class="form-check-label" for="flexRadioDefault1"> Nam </label>
+						name="Gender" value="true"
+						<c:if test="${user.gender eq true}">
+                checked
+            </c:if>
+						<c:if test="${user.gender eq null}">
+                checked
+            </c:if>>
+					<label class="form-check-label" for="flexRadioDefault1">
+						Nam </label>
 				</div>
 				<div class="form-check">
 					<input class="form-check-input" type="radio" id="flexRadioDefault2"
-						name="Gender" value="false"> <label
-						class="form-check-label" for="flexRadioDefault2"> Nữ </label>
+						name="Gender" value="false"
+						<c:if test="${user.gender eq false}">
+                checked
+            </c:if>>
+					<label class="form-check-label" for="flexRadioDefault2"> Nữ
+					</label>
 				</div>
 			</div>
 			<div class="mb-3 form-check">
-				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1"
+					name="agreement">
 				<div class="d-flex justify-content-between align-items-center">
 					<label class="form-check-label" for="exampleCheck1">Vui
 						lòng đồng ý với điều khoản</label>
@@ -93,4 +105,5 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
+
 </html>

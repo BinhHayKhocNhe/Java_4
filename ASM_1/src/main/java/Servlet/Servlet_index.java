@@ -12,6 +12,8 @@ public class Servlet_index extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		boolean loggedIn = false;
+		request.setAttribute("loggedIn", loggedIn);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

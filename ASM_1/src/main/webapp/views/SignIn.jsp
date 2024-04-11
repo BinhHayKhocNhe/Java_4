@@ -60,6 +60,10 @@
 		<div class="alert alert-danger container mt-3 w-25 text-center"
 			role="alert">${message}</div>
 	</c:if>
+	<c:if test="${not empty SignUpSuccess}">
+		<div class="alert alert-primary container mt-3 w-25 text-center"
+			role="alert">${SignUpSuccess}</div>
+	</c:if>
 	<%@include file="footer.jsp"%>
 </body>
 <script

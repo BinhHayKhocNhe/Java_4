@@ -12,6 +12,7 @@ public class Servlet_Cart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		findAll(request, response);
 		request.getRequestDispatcher("views/Cart.jsp").forward(request, response);
 	}
 
@@ -20,4 +21,9 @@ public class Servlet_Cart extends HttpServlet {
 		doGet(request, response);
 	}
 
+	protected void findAll(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		
+	}
 }
